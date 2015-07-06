@@ -8,7 +8,7 @@ Plugin Name: Bitcoin Donate Button
 
 Description: Adds a Bitcoin Donate Button (with QR-code in a popover) to your blogposts.   
 Author: Alex Dijkstra
-Version: 0.9
+Version: 1.0
 Author URI: http://lxer.eu/
 */
 
@@ -33,6 +33,7 @@ function add_btc_button($content) {
         $content    .= '
         <script type="text/javascript">
          $(document).ready(function() {
+         ( function($) {
          $("#btcpopoverId").popover({
             html: true,
             title: "'.$btcpoptitle.'",
@@ -46,6 +47,7 @@ function add_btc_button($content) {
          $("#btcpopoverId").popover("hide");
          }
          });
+         })( jQuery );
          });
          </script><div class="btcb_button '.$btcalign.'"><h5><i>'.	$btctitle .' </i></h5>
 <button id="btcpopoverId" class="popoverThis btn btn-xs btn-success '.$btcalign.'" >
